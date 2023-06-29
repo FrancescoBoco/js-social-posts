@@ -79,7 +79,7 @@ const posts = [
 
 const postContaienr = document.getElementById('container')
 
-posts.forEach(eachPost => {
+posts.forEach(eachPost => { 
     postContaienr.innerHTML += `
      <div class="post">
     <div class="post__header">
@@ -113,4 +113,24 @@ posts.forEach(eachPost => {
 </div>
 
 </div>`
+});
+
+const likeButton = document.querySelectorAll('.js-like-button');
+
+const likedPost = []
+
+likeButton.forEach((singelLikeButton, i) =>{
+    singelLikeButton.addEventListener('click', 
+        function(evento){
+            evento.preventDefault();
+
+            if(!singelLikeButton.classList.contains('like-button--liked') ){
+                singelLikeButton.classList.add('like-button--liked')
+                likedPost.push(posts[i].id);
+            }
+            console.log(likedPost)
+        }
+    );
+
+    
 });
